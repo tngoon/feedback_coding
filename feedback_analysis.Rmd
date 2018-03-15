@@ -1,0 +1,19 @@
+---
+title: "Expert Feedback Analysis"
+output: html_notebook
+---
+```{r}
+setwd("feedback_coding/")
+library(tidytext)
+library(ggplot2)
+library(dplyr)
+library(car)
+```
+```{r}
+#read in data
+all_comments <- read.table("data/all_feedback.csv", header=TRUE, sep=",", comment.char="")
+head(all_comments)
+```
+
+
+
