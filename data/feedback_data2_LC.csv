@@ -1,4 +1,4 @@
-,Length,Specific,Actionable,Justified
+Comment,Length,Specific,Actionable,Justified
 good,1,0,0,0
 unmet,1,0,0,0
 excellent,1,0,0,0
@@ -758,21 +758,21 @@ important interface elements are potentially ignored here such as reordering act
 the pictures that are still broken and some of the functionaly that does not work can be interpreted as error,20,1,0,0
 storyboards should state an issue and also introduce an interface the storyboards should show how that interface solved the issue,20,1,1,0
 think about how to align the idea with a need that is unfulfilled because people remain in their comfort zones,20,1,1,1
-its difficult to draw a conclusion from the analysis because of the use of noncategorical data in the chisquared test,20,,,
-great job finishing the interaction flow rewarded one extra point for implementing the search function adding comments and upvote downvote,20,,,
-extra point for database integration at this early stage try to focus on deep interactions rather than simply technical details,20,,,
-they are very very similar ill give you the point though since the app itself is differing with each storyboard,20,,,
-the core problem the pov conveys is vague and is weakly connected to the specifics found from the need statements,20,,,
-user needs must be expressed in a selfexplanatory manner for example 7 is vague without the context known from observations,20,,,
-points given for going above and beyond with using a database and styling the app smooth animations and not buggy,20,,,
-2how long does the user have to wait for a response is the app really helpful if no one responds,20,,,
-be careful about distribution of work make sure to input any potential schedule conflicts ie midterms out of town etc,20,,,
-you dont have to mention the names of the specific people when writing about user needs they are generic statements,20,,,
-i noticed you have a lot of html pages i wonder if rendering your json through handlebars might be easier,20,,,
-this is a bit oversimplified work with users to see what they would expect to do for such an app,20,,,
-storyboard 1 if someone were to pick up this storyboard they would not know how to create a distinct prototype,20,,,
-try having greater focus on violations it appears you tried to balance the two which is okay but not expectednecessary,20,,,
-after getting navigated to the mbti test page theres no control to go back check out the video below httpswwwyoutubecomwatchv6nisr7snkm,20,,,
+its difficult to draw a conclusion from the analysis because of the use of noncategorical data in the chisquared test,20,1,0,1
+great job finishing the interaction flow rewarded one extra point for implementing the search function adding comments and upvote downvote,20,1,0,1
+extra point for database integration at this early stage try to focus on deep interactions rather than simply technical details,20,1,1,1
+they are very very similar ill give you the point though since the app itself is differing with each storyboard,20,1,0,1
+the core problem the pov conveys is vague and is weakly connected to the specifics found from the need statements,20,1,0,1
+user needs must be expressed in a selfexplanatory manner for example 7 is vague without the context known from observations,20,1,1,1
+points given for going above and beyond with using a database and styling the app smooth animations and not buggy,20,1,0,1
+2how long does the user have to wait for a response is the app really helpful if no one responds,20,1,0,1
+be careful about distribution of work make sure to input any potential schedule conflicts ie midterms out of town etc,20,1,1,0
+you dont have to mention the names of the specific people when writing about user needs they are generic statements,20,1,0,1
+i noticed you have a lot of html pages i wonder if rendering your json through handlebars might be easier,20,1,1,0
+this is a bit oversimplified work with users to see what they would expect to do for such an app,20,1,1,1
+storyboard 1 if someone were to pick up this storyboard they would not know how to create a distinct prototype,20,1,0,0
+try having greater focus on violations it appears you tried to balance the two which is okay but not expectednecessary,20,1,1,0
+after getting navigated to the mbti test page theres no control to go back check out the video below httpswwwyoutubecomwatchv6nisr7snkm,20,1,1,0
 also try to ensure it works online maybe try a private video on youtube its likely a file format issue,20,,,
 its not working well but ill go easy on you guys you have a hard technical challenge in this design,20,,,
 "I like how the app provides cool sight seeing spots on the users route, this heightens the overall travel experience",20,,,

@@ -3,17 +3,81 @@ title: "Expert Feedback Analysis"
 output: html_notebook
 ---
 ```{r}
-setwd("feedback_coding/")
 library(tidytext)
+library(tidyr)
 library(ggplot2)
 library(dplyr)
 library(car)
+library(reshape2)
 ```
 ```{r}
 #read in data
-all_comments <- read.table("data/all_feedback.csv", header=TRUE, sep=",", comment.char="")
+all_comments <- read.table("data/all_feedback.tsv", fill=TRUE, header=TRUE, sep="\t", quote="", comment.char="")
+
+all_comments <- all_comments %>%
+  na.omit()
 head(all_comments)
 ```
+```{r}
+#specific, actionable, justified counts
+feedback_sum <- summarise(all_comments,
+                          condition="x",
+                          none = length(which(Specific==0 & Actionable==0 & Justified==0))/length(Comment),
+                          specific_only = length(which(Specific==1 & Actionable==0 & Justified==0))/length(Comment),
+                          specific_actionable = length(which(Specific==1 & Actionable==1 & Justified==0))/length(Comment),
+                          specific_justified = length(which(Specific==1 & Actionable==0 & Justified==1))/length(Comment),
+                          specific = length(which(Specific==1))/length(Comment),
+                          actionable = length(which(Actionable==1))/length(Comment),
+                          justified = length(which(Justified==1))/length(Comment),
+                          all = length(which(Specific==1 & Actionable==1 & Justified==1))/length(Comment))
 
+feedback_sum
+```
+```{r}
+df <- melt(feedback_sum[,c('condition','none','specific','actionable','justified','all')], id.vars=1)
+df
+
+ggplot(df, aes(variable, value)) +
+  geom_bar(stat="identity",position="dodge") +
+  theme_bw() +
+  scale_y_continuous(name="Proportion of Comments") +
+  scale_x_discrete(name="Categories")
+```
+```{r}
+#correlation of comment length and quality rating
+
+```
+
+```{r}
+comment_text <- all_comments %>%
+  mutate(feedback = as.vector(all_comments[,1]),
+         linenumber=1:n())
+  
+comment_text
+```
+```{r}
+#text analysis by bigrams
+ngrams <- comment_text %>%
+  unnest_tokens(ngram, Comment, token="ngrams",n=3)
+
+ngrams
+```
+```{r}
+separate_ngrams <- ngrams %>%
+  separate(ngram, c("word1","word2","word3"), sep=" ")
+
+separate_ngrams
+
+mystop <- data.frame(words=c("the", "of", "that", "and", "it","at", "a", "as", "to","as","if","is","from", "on"))
+ngram_filtered <- separate_ngrams %>%
+  filter(!word1 %in% mystop$words) %>%
+  filter(!word2 %in% mystop$words) %>%
+  filter(!word3 %in% mystop$words)
+
+ngram_filtered
+```
+```{r}
+
+```
 
 
