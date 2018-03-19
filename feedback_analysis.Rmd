@@ -14,14 +14,22 @@ library(reshape2)
 #read in data
 all_comments <- read.table("data/all_feedback.tsv", fill=TRUE, header=TRUE, sep="\t", quote="", comment.char="")
 
+#sort by comment length
+all_comments <- all_comments[order(all_comments$Length),]
+head(all_comments)
+
+#remove comments that haven't been rated yet
 all_comments <- all_comments %>%
   na.omit()
 head(all_comments)
 ```
+
 ```{r}
 #specific, actionable, justified counts
 feedback_sum <- summarise(all_comments,
                           condition="x",
+                          wordcount = mean(Length),
+                          wordcount_sd = sd(Length),
                           none = length(which(Specific==0 & Actionable==0 & Justified==0))/length(Comment),
                           specific_only = length(which(Specific==1 & Actionable==0 & Justified==0))/length(Comment),
                           specific_actionable = length(which(Specific==1 & Actionable==1 & Justified==0))/length(Comment),
@@ -40,12 +48,16 @@ df
 ggplot(df, aes(variable, value)) +
   geom_bar(stat="identity",position="dodge") +
   theme_bw() +
-  scale_y_continuous(name="Proportion of Comments") +
+  scale_y_continuous(name="Proportion of Comments", limits=c(0,1)) +
   scale_x_discrete(name="Categories")
 ```
 ```{r}
 #correlation of comment length and quality rating
+ggplot(all_comments, aes(x=Sum, y=Length)) + 
+  geom_point() +
+  theme_bw()
 
+plot(all_comments$Length)
 ```
 
 ```{r}
